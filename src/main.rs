@@ -1,57 +1,44 @@
-use std::io;
+//use std::io;
 //use std::cmp::Ordering;
 //use rand::Rng;
 
 fn main() {
-    // let x = 5; // Will result in an error since, we try and change an inmuttable variable
-    let mut x = 5;
-    println!("The value of x is: {x}");
-    x = 6;
-    println!("The value of x is: {x}");
+    println!("Hello, world!");
 
-    // Constants
-    const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
+    another_function(5);
 
-    let x = 5;
+    print_labeled_measurement(5, 'h');
 
-    let x = x + 1;
+    print_statement_v_expression();
 
-    {
-        let x = x * 2;
-        println!("The value of x in the inner scope is: {x}");
-    }
-
+    let mut x = five();
     println!("The value of x is: {x}");
 
-    let spaces = "   ";
-    let spaces = spaces.len();
+    x = plus_one(x);
+    println!("The value of x is: {x}");
+}
 
-    let f: bool = false; // with explicit type annotation
+fn another_function(x: i32) {
+    println!("The value of x is: {x}");
+}
 
-    let tup: (i32, f64, u8) = (500, 6.4, 1); // Tuple
-    let (z1, z2, z3) = tup;
-    println!("The value of z1 is: {z1}");
-    println!("The value of tup.2 is: {}", tup.2);
+fn print_labeled_measurement(value: i32, unit_label: char) {
+    println!("The measurement is: {value}{unit_label}");
+}
 
-    let months = ["January", "February", "March", "April", "May", "June", "July", // Array
-              "August", "September", "October", "November", "December"];
-    
-              let a = [1, 2, 3, 4, 5];
+fn print_statement_v_expression() {
+    let y = {
+        let x = 3;
+        x + 1
+    };
 
-    println!("Please enter an array index.");
+    println!("The value of y is: {y}");
+}
 
-    let mut index = String::new();
+fn five() -> i32 {
+    5
+}
 
-    io::stdin()
-        .read_line(&mut index)
-        .expect("Failed to read line");
-
-    let index: usize = index
-        .trim()
-        .parse()
-        .expect("Index entered was not a number");
-
-    let element = a[index];
-
-    println!("The value of the element at index {index} is: {element}");
+fn plus_one(x: i32) -> i32 {
+    x + 1
 }

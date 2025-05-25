@@ -1,0 +1,9 @@
+[package]
+name = "ex01-file-transfer"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4.11.0"
+futures = "0.3.31"
+rand = "0.9.1"
